@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prank Website</title>
+  <style>
+    body {
+      background-color: pink;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 10px 0;
+    }
+    video {
+      max-width: 100%;
+      height: auto;
+      margin: 10px 0;
+    }
+    .note {
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey Babe! 😘</h1>
+  <button id="prankButton">Click Me!</button>
+
+  <div id="content" style="display: none;">
+    <h2>Okay, Let's Talk 😊</h2>
+    <img src="https://via.placeholder.com/300" alt="Photo 1">
+    <p class="note">This is us when we were happy. 😍</p>
+    <img src="https://via.placeholder.com/300" alt="Photo 2">
+    <p class="note">This is us when you were mad. 😠</p>
+    <video controls>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p class="note">This is how I feel when you're mad. 😢</p>
+    <button id="prankButton2">Click Me for Another Prank!</button>
+  </div>
+
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    let clickCount = 0;
+    const prankButton = document.getElementById('prankButton');
+    const content = document.getElementById('content');
+    const prankButton2 = document.getElementById('prankButton2');
+    const music = document.getElementById('backgroundMusic');
+
+    prankButton.addEventListener('click', () => {
+      clickCount++;
+      if (clickCount < 5) {
+        prankButton.style.transform = `translate(${Math.random() * 100}px, ${Math.random() * 100}px)`;
+      } else {
+        prankButton.style.display = 'none';
+        content.style.display = 'block';
+      }
+    });
+
+    let prank2Count = 0;
+    prankButton2.addEventListener('click', () => {
+      prank2Count++;
+      if (prank2Count < 3) {
+        alert("Haha, you clicked again! 😂");
+      } else {
+        alert("Okay, last one! I love you! ❤️");
+      }
+    });
+
+    // Play music when the page loads
+    music.play();
+  </script>
+</body>
+</html>
